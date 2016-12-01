@@ -64,7 +64,7 @@ RUN apt-get update && \
     echo "127.1.1.2  foreman.example.com" >> /etc/hosts && \
     /usr/sbin/foreman-installer $FOREOPTS; \
     sed -i -e "s/START=no/START=yes/g" /etc/default/foreman \
-    gem install foreman_xen
+    /usr/bin/gem install foreman_xen
 
 EXPOSE 443
 EXPOSE 8140
