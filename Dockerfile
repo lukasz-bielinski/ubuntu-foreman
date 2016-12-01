@@ -40,7 +40,7 @@ RUN apt-get update && \
     apt-get -y install ca-certificates wget && \
     wget https://apt.puppetlabs.com/puppetlabs-release-trusty.deb && \
     dpkg -i puppetlabs-release-trusty.deb && \
-    apt-get install -y wget aptitude htop vim vim-puppet git traceroute dnsutils && \
+    apt-get install -y  wget aptitude htop vim vim-puppet git traceroute dnsutils && \
     echo "deb http://deb.theforeman.org/ trusty $FOREMANVER" > /etc/apt/sources.list.d/foreman.list && \
     echo "deb http://deb.theforeman.org/ plugins $FOREMANVER" >> /etc/apt/sources.list.d/foreman.list && \
     wget -q http://deb.theforeman.org/pubkey.gpg -O- | apt-key add - && \
@@ -48,7 +48,7 @@ RUN apt-get update && \
     apt-add-repository ppa:git-core/ppa -y && \
     apt-get update && \
     apt-get install -y foreman-installer && \
-    apt-get install -y git python-pip iotop sysstat krb5-user libkrb5-dev python-dev python-jinja2 python-yaml python-paramiko python-httplib2 python-six python-crypto sshpass && \
+    apt-get install -y ruby-foreman-xen  git python-pip iotop sysstat krb5-user libkrb5-dev python-dev python-jinja2 python-yaml python-paramiko python-httplib2 python-six python-crypto sshpass && \
     apt-add-repository ppa:ansible/ansible && \
     apt-get update && \
     apt-get install -y ansible && \
@@ -63,8 +63,7 @@ RUN apt-get update && \
     export FACTER_fqdn="foreman.example.com" && \
     echo "127.1.1.2  foreman.example.com" >> /etc/hosts && \
     /usr/sbin/foreman-installer $FOREOPTS; \
-    sed -i -e "s/START=no/START=yes/g" /etc/default/foreman \
-    /usr/bin/gem install foreman_xen
+    sed -i -e "s/START=no/START=yes/g" /etc/default/foreman
 
 EXPOSE 443
 EXPOSE 8140
