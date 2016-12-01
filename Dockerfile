@@ -27,7 +27,10 @@ ENV FOREOPTS --foreman-locations-enabled \
         --enable-foreman-compute-vmware \
         --enable-foreman-compute-libvirt \
         --enable-foreman-proxy \
-        
+        --enable-puppet \
+        --puppet-listen=true \
+        --puppet-show-diff=true \
+        --puppet-server-envs-dir=/etc/puppet/environments        
 
 RUN apt-get update && \
     apt-get upgrade -y && \
