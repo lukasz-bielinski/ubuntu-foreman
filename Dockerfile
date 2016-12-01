@@ -23,17 +23,11 @@ MAINTAINER Graham Bevan "graham.bevan@ntlworld.com"
 ENV FOREMANVER 1.11
 ENV DEBIAN_FRONTEND noninteractive
 ENV FOREOPTS --foreman-locations-enabled \
-        --enable-foreman-compute-ec2 \
-        --enable-foreman-compute-gce \
         --enable-foreman-compute-ovirt \
         --enable-foreman-compute-vmware \
         --enable-foreman-compute-libvirt \
-        --enable-foreman-compute-openstack \
-        --enable-foreman-compute-rackspace \
-        --enable-puppet \
-        --puppet-listen=true \
-        --puppet-show-diff=true \
-        --puppet-server-envs-dir=/etc/puppet/environments
+        --enable-foreman-proxy \
+        
 
 RUN apt-get update && \
     apt-get upgrade -y && \
